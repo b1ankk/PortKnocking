@@ -28,8 +28,9 @@ public class Client {
     }
     
     private void sendKnocks(int[] ports) {
-        for (int port : ports)
+        for (int port : ports) {
             sendKnockPacketUnchecked(port);
+        }
     }
     
     private void sendKnockPacketUnchecked(int port) {

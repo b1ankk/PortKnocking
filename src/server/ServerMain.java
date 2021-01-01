@@ -12,9 +12,12 @@ public class ServerMain {
             server.listen();
         }
         catch (NumberFormatException e) {
-            throw new RuntimeException("Illegal parameter passed - port number required");
+            System.err.println("Illegal parameter passed - port number required");
         }
         catch (UncheckedIOException e) {
+            System.err.println(e.getMessage());
+        }
+        catch (RuntimeException e) {
             System.err.println(e.getMessage());
         }
     }

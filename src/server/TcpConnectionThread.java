@@ -12,6 +12,7 @@ public class TcpConnectionThread extends Thread {
     
     public TcpConnectionThread(InetSocketAddress clientAddress) throws IOException {
         this.socket = new ServerSocket(0);
+        this.socket.setSoTimeout(3000);
         this.clientAddress = clientAddress;
         System.out.println("Reserved port: " + this.socket.getLocalPort());
     }
@@ -21,6 +22,9 @@ public class TcpConnectionThread extends Thread {
         try {
             sendOpenedPort();
             awaitConnection();
+        }
+        catch (SocketTimeoutException e) {
+            System.err.println("Connection timed out");
         }
         catch (IOException e) {
             throw new UncheckedIOException(e);
