@@ -1,3 +1,3 @@
-# SKJ_Project  
+# PortKnocking 
 
-Port knocking simulation - university project.
+*[Port knocking](https://en.wikipedia.org/wiki/Port_knocking)* simulation - university project.
